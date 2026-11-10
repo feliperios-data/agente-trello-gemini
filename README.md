@@ -20,4 +20,20 @@ Além dos requisitos base do desafio, foram implementadas as seguintes melhorias
 1. **Correção do Fuso Horário (Timezone):** Ajuste no envio do parâmetro `due` fixando o horário ao meio-dia em UTC (`T12:00:00.000Z`), corrigindo o comportamento em que as datas chegavam ao Trello com um dia a menos no fuso horário do Brasil (UTC-3).
 2. **Normalização de Strings e Filtro de Acentos:** Criação da função `remover_acentos` com a biblioteca nativa `unicodedata`. O agente aceita variações com ou sem acento e diferentes capitalizações (ex: `"concluido"` ou `"Concluído"`).
 3. **Centralização da Conexão e Busca do Quadro:** Funções auxiliares `conectar_trello` e `obter_quadro` para evitar repetição de código entre as ferramentas.
-4. **Trat
+4. **Tratamento de Exceções Generalizado:** Uso de blocos `try/except` em todas as ferramentas para capturar falhas de rede ou de API sem interromper a execução do agente.
+5. **Ferramenta de Exclusão de Cards:** Implementação da função `remover_tarefa` para completar o ciclo CRUD de tarefas no quadro.
+
+## ⚙️ Como Configurar e Rodar
+
+### Pré-requisitos
+* Python 3.10 ou superior
+* Chave de API do Google AI Studio (`GOOGLE_API_KEY`)
+* Credenciais de desenvolvedor do Trello (`TRELLO_API_KEY` e `TRELLO_TOKEN`)
+* Um quadro no Trello chamado **DIO** contendo as listas: `A fazer`, `Em andamento` e `Concluído`
+
+### Passo a Passo
+
+1. **Clone o repositório:**
+   ```bash
+   git clone [https://github.com/SEU_USUARIO/agente-trello-gemini.git](https://github.com/SEU_USUARIO/agente-trello-gemini.git)
+   cd agente-trello-gemini
